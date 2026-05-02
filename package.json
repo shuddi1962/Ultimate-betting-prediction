@@ -1,0 +1,8 @@
+{
+  "name": "ultimate-betting-prediction",
+  "version": "1.0.0",
+  "description": "Root package.json for Vercel deployment",
+  "scripts": {
+    "vercel-build": "cd frontend && npm install && npm run build"
+  }
+}
