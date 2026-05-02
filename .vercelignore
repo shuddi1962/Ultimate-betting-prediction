@@ -1,0 +1,6 @@
+.git
+backend/
+*.md
+.env*
+node_modules/
+.next/
