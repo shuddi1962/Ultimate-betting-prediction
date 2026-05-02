@@ -44,7 +44,7 @@ export default function MatchPage() {
     <main className="min-h-screen bg-gray-50">
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <Link href="/" className="text-blue-600 hover:underline text-sm">← Back</Link>
+          <Link href="/"><span className="text-blue-600 hover:underline text-sm">← Back</span></Link>
           <h1 className="text-2xl font-bold mt-2">
             {fixture.home_team} vs {fixture.away_team}
           </h1>

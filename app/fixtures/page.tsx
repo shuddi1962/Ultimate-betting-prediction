@@ -61,30 +61,31 @@ export default function FixturesPage() {
                 <Link 
                   key={fixture.id || idx}
                   href={`/match/${fixture.id}`}
-                  className="block p-4 hover:bg-gray-50"
                 >
-                  <div className="flex justify-between items-center">
-                    <div className="flex-1 text-right">
-                      <span className="font-medium">{fixture.home_team}</span>
-                    </div>
-                    <div className="px-6 text-center">
-                      <div className="text-gray-500 text-sm">{fixture.league}</div>
-                      <div className="font-semibold">vs</div>
-                      <div className="text-xs text-gray-400">
-                        {new Date(fixture.kickoff_utc).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  <div className="block p-4 hover:bg-gray-50">
+                    <div className="flex justify-between items-center">
+                      <div className="flex-1 text-right">
+                        <span className="font-medium">{fixture.home_team}</span>
                       </div>
-                    </div>
-                    <div className="flex-1">
-                      <span className="font-medium">{fixture.away_team}</span>
-                    </div>
-                    <div className="ml-4">
-                      <span className={`px-2 py-1 text-xs rounded ${
-                        fixture.status === 'NS' ? 'bg-gray-200' :
-                        fixture.status === 'LIVE' ? 'bg-red-500 text-white' :
-                        'bg-green-200'
-                      }`}>
-                        {fixture.status}
-                      </span>
+                      <div className="px-6 text-center">
+                        <div className="text-gray-500 text-sm">{fixture.league}</div>
+                        <div className="font-semibold">vs</div>
+                        <div className="text-xs text-gray-400">
+                          {new Date(fixture.kickoff_utc).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <span className="font-medium">{fixture.away_team}</span>
+                      </div>
+                      <div className="ml-4">
+                        <span className={`px-2 py-1 text-xs rounded ${
+                          fixture.status === 'NS' ? 'bg-gray-200' :
+                          fixture.status === 'LIVE' ? 'bg-red-500 text-white' :
+                          'bg-green-200'
+                        }`}>
+                          {fixture.status}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </Link>

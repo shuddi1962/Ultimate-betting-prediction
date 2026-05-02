@@ -42,10 +42,10 @@ export default function HomePage() {
 
       <nav className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex gap-4">
-          <Link href="/fixtures" className="text-blue-600 hover:underline">Fixtures</Link>
-          <Link href="/live" className="text-blue-600 hover:underline">Live Scores</Link>
-          <Link href="/leagues" className="text-blue-600 hover:underline">Leagues</Link>
-          <Link href="/analytics" className="text-blue-600 hover:underline">Analytics</Link>
+          <Link href="/fixtures"><span className="text-blue-600 hover:underline">Fixtures</span></Link>
+          <Link href="/live"><span className="text-blue-600 hover:underline">Live Scores</span></Link>
+          <Link href="/leagues"><span className="text-blue-600 hover:underline">Leagues</span></Link>
+          <Link href="/analytics"><span className="text-blue-600 hover:underline">Analytics</span></Link>
         </div>
       </nav>
 
@@ -77,18 +77,19 @@ export default function HomePage() {
                     <Link 
                       key={fixture.id || idx}
                       href={`/match/${fixture.id}`}
-                      className="block p-4 border rounded hover:bg-gray-50"
                     >
-                      <div className="flex justify-between items-center">
-                        <div className="flex-1 text-right">
-                          <span className="font-medium">{fixture.home_team}</span>
-                        </div>
-                        <div className="px-4 text-gray-500">vs</div>
-                        <div className="flex-1">
-                          <span className="font-medium">{fixture.away_team}</span>
-                        </div>
-                        <div className="ml-4 text-sm text-gray-500">
-                          {fixture.league}
+                      <div className="block p-4 border rounded hover:bg-gray-50">
+                        <div className="flex justify-between items-center">
+                          <div className="flex-1 text-right">
+                            <span className="font-medium">{fixture.home_team}</span>
+                          </div>
+                          <div className="px-4 text-gray-500">vs</div>
+                          <div className="flex-1">
+                            <span className="font-medium">{fixture.away_team}</span>
+                          </div>
+                          <div className="ml-4 text-sm text-gray-500">
+                            {fixture.league}
+                          </div>
                         </div>
                       </div>
                     </Link>
