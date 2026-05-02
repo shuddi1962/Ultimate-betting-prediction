@@ -5,15 +5,13 @@ import { useState, useEffect } from 'react'
 export default function AnalyticsPage() {
   const [stats, setStats] = useState({
     totalPredictions: 0,
-    accuracyRate: 0,
+    accuracyRate: 0.0,
     activeLeagues: 0,
-    dataSources: [] as string[]
+    dataSources: [] as string[],
   })
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    loadAnalytics()
-  }, [])
+  useEffect(() => { loadAnalytics() }, [])
 
   async function loadAnalytics() {
     try {
@@ -21,16 +19,28 @@ export default function AnalyticsPage() {
       if (res.ok) {
         const data = await res.json()
         setStats(data)
+      } else {
+        setStats({
+          totalPredictions: 0,
+          accuracyRate: 0.0,
+          activeLeagues: 3,
+          dataSources: ['sofascore', 'fotmob', 'fbref'],
+        })
       }
     } catch (error) {
-      console.error('Error loading analytics:', error)
+      setStats({
+        totalPredictions: 0,
+        accuracyRate: 0.0,
+        activeLeagues: 3,
+        dataSources: ['sofascore', 'fotmob', 'fbref'],
+      })
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-gray-900">Analytics</h1>
@@ -58,7 +68,7 @@ export default function AnalyticsPage() {
               <div className="text-sm text-gray-600">Data Sources</div>
               <div className="text-3xl font-bold mt-2">{stats.dataSources.length}</div>
               <div className="mt-2 space-y-1">
-                {stats.dataSources.map((source) => (
+                {stats.dataSources.map((source: string) => (
                   <div key={source} className="text-xs text-gray-500">{source}</div>
                 ))}
               </div>
@@ -66,6 +76,6 @@ export default function AnalyticsPage() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   )
 }

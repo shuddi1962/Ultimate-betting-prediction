@@ -1,9 +1,5 @@
+import Sidebar from '@/components/Sidebar'
 import './globals.css'
-
-export const metadata = {
-  title: 'FootballIQ Pro - Free Football Predictions',
-  description: 'Football predictions using free web scrapers',
-}
 
 export default function RootLayout({
   children,
@@ -12,7 +8,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="flex min-h-screen">
+          <Sidebar />
+          <main className="flex-1 bg-gray-50">{children}</main>
+        </div>
+      </body>
     </html>
   )
 }
